@@ -1,0 +1,84 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="header">
+          <div class="row">
+            <div class="col-md-6">
+              <h4 class="title">Lista de heróis</h4>
+              <p class="category">Aqui estão listados todos os heróis</p>
+            </div>
+            <div class="col-md-6">
+              <div class="pull-right">
+                <button
+                  class="btn btn-success btn-fill btn-wd"
+                  (click)="cadastrar()"
+                >
+                  Cadastrar
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="content table-responsive table-full-width">
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th *ngFor="let cell of tableData.headerRow">{{ cell }}</th>
+                <th width="80px">
+                  Visualizar
+                </th>
+
+                <th width="80px">
+                  Editar
+                </th>
+                <th width="80px">
+                  Excluir
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let row of tableData.dataRows">
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td width="80px">
+                  <button
+                    class="btn btn-warning btn-fill btn-wd"
+                    (click)="favoritar(row)"
+                  >
+                    {{ row[2] === true ? "Desfavoritar" : "Favoritar" }}
+                    <!-- Favoritar -->
+                  </button>
+                </td>
+                <td width="80px">
+                  <button
+                    class="btn btn-success btn-fill btn-wd"
+                    (click)="visualizar(row)"
+                  >
+                    Visualizar
+                  </button>
+                </td>
+                <td width="80px">
+                  <button
+                    class="btn btn-info btn-fill btn-wd"
+                    (click)="editar(row)"
+                  >
+                    Editar
+                  </button>
+                </td>
+                <td width="80px">
+                  <button
+                    class="btn btn-danger btn-fill btn-wd"
+                    (click)="excluir(row)"
+                  >
+                    Excluir
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
