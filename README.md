@@ -5,7 +5,10 @@
 * HTML
 
 ### Para executar:
-* Instalar angular: npm install -g @angular/cli@1.4.9:
+* Instalar angular:
+```sh
+  npm install -g @angular/cli@1.4.9
+```
 * Instalar ferramenta de deploy: npm install -g surge
 * Instalar dependencias do projeto: npm install
 * Iniciar o projeto: npm start
