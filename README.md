@@ -1,4 +1,4 @@
-### Tecnologias:
+### Tecnologias Usadas:
 * JavaScript
 * Typescript 2.3.4
 * Bootstrap 3.3.32
