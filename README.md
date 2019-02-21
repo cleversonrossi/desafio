@@ -9,10 +9,6 @@
 ```sh
   npm install -g @angular/cli@1.4.9
 ```
-* Instalar ferramenta de deploy:
-```sh
-  npm install -g surge
-```
 * Instalar dependencias do projeto:
 ```sh
   npm install
