@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { Router } from "@angular/router";
+import { isRegExp } from "util";
 
 declare interface TableData {
   headerRow: string[];
@@ -16,6 +17,13 @@ export class TableComponent implements OnInit {
   public tableData: TableData;
 
   constructor(private http: HttpClient, private router: Router) {}
+
+  model = {
+    nome: "",
+    descricao: "",
+    foto: "",
+    flagfavorito: false
+  };
 
   ngOnInit() {
     this.tableData = {
@@ -85,5 +93,22 @@ export class TableComponent implements OnInit {
 
   cadastrar() {
     this.router.navigate(["/newuser"]);
+  }
+
+  pesquisar(nome) {
+      this.http
+        .get(
+          `https://desafio-super-herois.herokuapp.com/herois/buscaNome?nome=${nome}`
+        )
+        .subscribe(res => {
+          let response = Object.keys(res).map(key => {
+            return [res[key].idheroi, res[key].nome, res[key].flagfavorito];
+          });
+    
+          this.tableData = {
+            headerRow: ["ID", "Nome", "Favoritar"],
+            dataRows: response
+          };
+        });
   }
 }

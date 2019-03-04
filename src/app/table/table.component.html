@@ -5,8 +5,17 @@
         <div class="header">
           <div class="row">
             <div class="col-md-6">
-              <h4 class="title">Lista de heróis</h4>
-              <p class="category">Aqui estão listados todos os heróis</p>
+              <input id="nmBusca" style="display: inline; width: 70%;"
+                type="text"
+                class="form-control border-input"
+                (input)="model.nome = $event.target.value"
+              />
+              <button
+                class="btn btn-info btn-fill btn-wd" 
+                (click)="pesquisar(model.nome)"
+              >
+                Buscar
+              </button>
             </div>
             <div class="col-md-6">
               <div class="pull-right">
